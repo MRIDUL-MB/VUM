@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <nav
@@ -6,14 +6,11 @@ export default function Navbar() {
       className='navbar navbar-expand-lg navbar-light fixed-top'
     >
       <div className='container-xl'>
-        {/* <a className='navbar-brand' href='index.html'>
+        <a className='navbar-brand' href='/'>
           <img src='assets/img/logo.png' alt='' title='' />
-        </a> */}
-        <Link to='/' className='navbar-brand'>
-          <img src='assets/img/logo.png' alt='' title='' />
-        </Link>
+        </a>
         <a
-          href='index'
+          href='/'
           className='navbar-toggler border-0 collapsed'
           type='button'
           data-bs-toggle='collapse'
@@ -23,22 +20,12 @@ export default function Navbar() {
           {/* these spans become the three lines  */}
           <span> </span> <span> </span> <span> </span>
         </a>
-        <Link
-          to='/'
-          className='navbar-toggler border-0 collapsed'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarsExample07XL'
-          aria-expanded='false'
-        >
-          <img src='assets/img/logo.png' alt='' title='' />
-        </Link>
         <div className='collapse navbar-collapse' id='navbarsExample07XL'>
           <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>
               <a
                 className='nav-link dropdown-toggle'
-                href='#index'
+                href='/'
                 id='dropdown07XL'
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
