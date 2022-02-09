@@ -1,0 +1,632 @@
+body {
+  overflow-x: hidden
+}
+
+@font-face {
+  font-family: 'bauhaus_buglerbold';
+  src: url('../fonts/bauhaus_bugler_bold.woff2') format('woff2'),
+    url('../fonts/bauhaus_bugler_bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none
+}
+
+
+@font-face {
+  font-family: 'eferegular';
+  src: url('../fonts/efe-regular.woff2') format('woff2'),
+    url('../fonts/efe-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'eferegular';
+  src: url('../fonts/efe-regular.woff2') format('woff2'),
+    url('../fonts/efe-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'efebold';
+  src: url('../fonts/efe-bold-webfont.woff2') format('woff2'),
+    url('../fonts/efe-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'efemedium';
+  src: url('../fonts/efe-medium.woff2') format('woff2'),
+    url('../fonts/efe-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'eferegular';
+  font-size: 18px
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background: #08CF65
+}
+
+.dropdown-toggle {
+  position: relative
+}
+
+.dropdown-toggle::after {
+  top: 20px;
+  right: 5px;
+  position: absolute
+}
+
+/*navbar*/
+.navbar {
+  font-family: 'bauhaus_buglerbold';
+  font-size: 18px;
+}
+
+.navbar .join {
+  font-size: 18px;
+}
+
+.btn-css {
+  font-size: 20px;
+  font-family: 'bauhaus_buglerbold';
+  padding: 23px 32px
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #181F38
+}
+
+/* Define the shape and color of the hamburger lines */
+.navbar-toggler span {
+  display: block;
+  background-color: #4f4f4f;
+  height: 3px;
+  width: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  left: 0;
+  opacity: 1;
+  transition: all 0.35s ease-out;
+  transform-origin: center left;
+}
+
+
+/* top line needs a little padding */
+.navbar-toggler span:nth-child(1) {
+  margin-top: 0.3em;
+}
+
+/**
+ * Animate collapse into X.
+ */
+
+/* top line rotates 45 degrees clockwise and moves up and in a bit to close the center of the X in the center of the button */
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+  transform: translate(15%, -33%) rotate(45deg);
+}
+
+/* center line goes transparent */
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+  opacity: 0;
+}
+
+/* bottom line rotates 45 degrees counter clockwise, in, and down a bit to close the center of the X in the center of the button  */
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+  transform: translate(15%, 33%) rotate(-45deg);
+}
+
+
+/**
+ * Animate collapse open into hamburger menu
+ */
+
+/* top line moves back to initial position and rotates back to 0 degrees */
+.navbar-toggler span:nth-child(1) {
+  transform: translate(0%, 0%) rotate(0deg);
+}
+
+/* middle line goes back to regular color and opacity */
+.navbar-toggler span:nth-child(2) {
+  opacity: 1;
+}
+
+/* bottom line goes back to initial position and rotates back to 0 degrees */
+.navbar-toggler span:nth-child(3) {
+  transform: translate(0%, 0%) rotate(0deg);
+}
+
+/*navbar*/
+
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  height: 100%;
+}
+
+
+
+/*header*/
+header {
+  background: #D8EDF0;
+  padding-bottom: 130px;
+}
+
+header h1 {
+  font-family: 'bauhaus_buglerbold';
+  font-size: 4.375rem;
+  line-height: 65px;
+  margin-bottom: 2rem;
+  margin-top: 198px;
+}
+
+.left-img {
+  left: -126px;
+  position: relative;
+  top: 150px
+}
+
+.right-img {
+  right: -50px;
+  position: relative;
+  top: 240px
+}
+
+header h3 {
+  font-family: 'efebold';
+  font-size: 20px;
+  margin-bottom: 100px;
+  line-height: 35px
+}
+
+/*header*/
+
+.heading h2 {
+  font-size: 3.75rem;
+  color: #181F38;
+  font-family: 'bauhaus_buglerbold'
+}
+
+.heading h3 {
+  font-size: 2.5rem;
+  color: #000;
+  font-family: 'bauhaus_buglerbold'
+}
+
+.heading h4 {
+  font-size: 1.5rem;
+  font-family: 'bauhaus_buglerbold';
+}
+
+.link a {
+  font-family: 'bauhaus_buglerbold';
+  font-size: 1.563rem;
+  color: #181F38;
+  text-decoration: none;
+  margin-top: 65px;
+  display: inline-block
+}
+
+/*Reward*/
+/*Reward*/
+
+/*FULL*/
+.full {
+  background: #F8F9F9;
+  padding: 129px 0 145px 0
+}
+
+.full p {
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 35px;
+}
+
+/*FULL*/
+
+/*Start Today*/
+.start-today {
+  padding: 190px 0 190px 0
+}
+
+.start-today h2 {
+  font-size: 4.063rem;
+  color: #000;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+.start-today p {
+  font-size: 1.75rem;
+}
+
+.social-media a {
+  margin: 0 50px 10px 0;
+  display: inline-block
+}
+
+.social-media {
+  right: -225px;
+  top: 30px;
+}
+
+/*Start Today*/
+
+.btn-dark {
+  background: #181F38;
+}
+
+.btn-dark:hover {
+  background: #04B767
+}
+
+.footer-bg {
+  padding: 160px 0 10px 0;
+  padding-bottom: 80px;
+  background: url(../img/footer-bg.png) no-repeat center 295px #F8F9F9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100%;
+}
+
+
+.footer-bg h2 {
+  font-size: 4.063rem;
+  color: #000;
+  margin: 0 0 24px 0;
+  padding: 0;
+  font-family: 'bauhaus_buglerbold'
+}
+
+.footer-bg p {
+  font-size: 1.75rem;
+}
+
+.sign-up-now {
+  font-size: 1.563rem;
+  font-family: 'bauhaus_buglerbold';
+  padding: 23px 55px;
+  background: #222833;
+  color: #fff;
+  margin-top: 55px;
+  display: inline-block;
+  margin-bottom: 160px
+}
+
+.sign-up-now:hover {
+  background: #04B767;
+  color: #fff
+}
+
+hr {
+  margin: 0 0 33px 0;
+  padding: 0;
+  border-bottom: solid 2px #658488;
+  background: none !important
+}
+
+.footer-bg h3 {
+  font-size: 25px;
+  font-family: 'bauhaus_buglerbold';
+}
+
+.footer-bg ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-bg li {
+  list-style: none;
+  font-size: 15px;
+  line-height: 32px;
+  font-family: 'efemedium';
+}
+
+.footer-bg li a {
+  color: #222833
+}
+
+.footer-bg li a:hover {
+  color: #04B767
+}
+
+.footer-icon {
+  float: right
+}
+
+.footer-icon a {
+  margin: 0 0 0 24px;
+}
+
+.copy-right h4 {
+  font-size: 17px;
+  font-family: 'bauhaus_buglerbold';
+  color: #222833
+}
+
+.copy-right p {
+  font-size: 14px;
+  color: #222833;
+  font-family: 'efemedium';
+}
+
+.terms a {
+  color: #000;
+  font-size: 12px;
+  font-family: 'efemedium';
+  text-decoration: underline
+}
+
+.fixed-top {
+  background: rgba(216, 237, 240, 0.9)
+}
+
+/*inner-page*/
+.inner-page-bg {
+  background: linear-gradient(to right, #fff 50%, #F6F3EB 50%);
+  padding-top: 10%;
+  padding-bottom: 10%
+}
+
+.inner-text {
+  margin-left: 30%;
+  margin-right: 15%
+}
+
+.inner-text .inner-text p {
+  margin: 0;
+  padding: 0
+}
+
+.btn-css2 {
+  background: #9D37A0;
+  padding: 9px 42px;
+  font-size: 30px;
+  font-family: 'bauhaus_buglerbold';
+  margin-top: 83px;
+  margin-bottom: 20px;
+}
+
+/*inner-page*/
+
+.form p {
+  font-size: 20px
+}
+
+.input {
+  color: #657694;
+  font-size: 16px;
+  background-color: #F8F9FB;
+  padding: 15px 20px
+}
+
+.input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #657694;
+  opacity: 1;
+  /* Firefox */
+}
+
+.input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #657694;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
+}
+
+
+/*step*/
+.step-button {
+  display: block;
+  width: 100%;
+  padding: 105px 0 10px 0
+}
+
+.step-button button {
+  margin: 0 4px 0 0;
+  padding: 0;
+  background: #C1C9D8;
+  width: 63px;
+  height: 6px;
+  border: 0;
+  float: left
+}
+
+.step-button .active {
+  background: #FDCC18;
+  height: 14px;
+  margin-top: -4px
+}
+
+.active2 {
+  background: #FDCC18 !important
+}
+
+.green {
+  background: #08CF65 !important
+}
+
+.green:hover {
+  background: #181F38 !important
+}
+
+.choose {
+  background: #EFF1F5;
+  color: #657694;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 14px;
+  padding: 10px 18px
+}
+
+.choose:hover {
+  background: url(../img/tick.png) no-repeat right center, #6E5AEB;
+  color: #fff;
+  font-family: 'efebold';
+}
+
+.choose-active {
+  background: url(../img/tick.png) no-repeat right center, #6E5AEB;
+  color: #fff;
+  font-family: 'efebold';
+}
+
+.choose:focus {
+  background: url(../img/tick.png) no-repeat right center, #6E5AEB;
+  color: #fff;
+  font-family: 'efebold';
+}
+
+.input-bg {
+  background: #EFF1F5;
+  color: #657694;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 14px;
+  padding: 10px 18px
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn {
+  box-shadow: none !important
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #EFF1F5 !important;
+  border-color: #C8CACE !important;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #EFF1F5 !important;
+  border-color: #C8CACE !important;
+  outline: none;
+  box-shadow: none;
+}
+
+input {
+  box-shadow: none !important;
+}
+
+.flag::after {
+  display: none
+}
+
+.select-css {
+  color: #657694;
+  font-size: 16px;
+  background-color: #F8F9FB;
+  padding: 15px 20px;
+  border: 2px solid #ced4da;
+}
+
+.dropdown-menu-2 {
+  min-width: inherit
+}
+
+.form-check-input {
+  width: 47px;
+  height: 47px;
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 0;
+}
+
+.form-check-input:checked {
+  background-color: #04B767 !important;
+  border-color: #04B767 !important;
+}
+
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+.fill {
+  min-height: 100%;
+  background: linear-gradient(to right, #fff 50%, #F6F3EB 50%);
+  padding-top: 10%;
+  padding-bottom: 10%
+}
+
+/*step*/
+
+
+/* For other pages */
+
+
+
+.micro-container h1 {
+  font-family: 'bauhaus_buglerbold';
+  font-size: 3.5rem;
+  line-height: 65px;
+  margin-bottom: 1rem;
+}
+
+.micro-container p {
+  line-height: 2;
+}
+
+/* contact */
+.contact-header {
+  background-color: #ebf5f3;
+}
+
+
+/* about */
+.about-header {
+  background-color: #f6f3eb;
+}
+
+.about-card {
+  background-color: #ebf5f3;
+}
+
+.transparency {
+  margin-top: 2.25rem !important;
+}
+
+/* community */
+.green-color {
+  background-color: #08CF65;
+}
+
+.font-p p {
+  line-height: 1.5;
+  font-size: 15px;
+}
