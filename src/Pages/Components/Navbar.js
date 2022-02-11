@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <nav
@@ -88,13 +88,16 @@ export default function Navbar() {
             </li>
           </ul>
           <form className='ms-md-4'>
-            <button
+            {/* <button
               className='btn btn-dark rounded-0 border-0 join'
               type='button '
             >
               {' '}
               Join the Community{' '}
-            </button>
+            </button> */}
+            <Link to='/one' className='btn btn-dark rounded-0 border-0 join'>
+              Join the Community
+            </Link>
           </form>
         </div>
       </div>
