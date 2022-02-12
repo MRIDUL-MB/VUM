@@ -29,16 +29,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='about' element={<About />} />
+        <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='community' element={<Community />} />
         <Route path='howitworks' element={<HowitWorks />} />
         <Route path='influencerbenefit' element={<InfluencerBenefit />} />
         <Route path='ourservices' element={<OurServices />} />
-        <Route path='one' element={<One />} />
-        <Route path='two' element={<Two />} />
-        <Route path='three' element={<Three />} />
-        <Route path='four' element={<Four />} />
       </Routes>
       <Footer />
     </div>

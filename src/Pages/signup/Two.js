@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Two() {
+export default function Two({ prevStep, nextStep }) {
   return (
     <div className='pt-2 pb-2 fill p-0'>
       <div className='container'>
@@ -146,18 +146,24 @@ export default function Two() {
                 </div>
               </div>
             </div>
-            {/* <a
-              href='3.html'
+            <button
+              onClick={prevStep}
               className='btn btn-dark rounded-0 border-0 btn-css2 green'
             >
-              Next <img src='assets/img/arrow-w.png' />
-            </a>{' '} */}
-            <Link
-              to='/three'
+              <img
+                src='assets/img/arrow-w.png'
+                style={{ transform: 'scaleX(-1)' }}
+                alt='arrow'
+              />
+              Prev
+            </button>{' '}
+            <button
+              onClick={nextStep}
               className='btn btn-dark rounded-0 border-0 btn-css2 green'
             >
-              Next <img src='assets/img/arrow-w.png' alt='' />
-            </Link>{' '}
+              Next
+              <img src='assets/img/arrow-w.png' alt='arrow' />
+            </button>
           </div>
           <div className='col-md-6  col-mobile2 text-center'>
             <img

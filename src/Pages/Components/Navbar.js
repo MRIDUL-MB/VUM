@@ -95,7 +95,7 @@ export default function Navbar() {
               {' '}
               Join the Community{' '}
             </button> */}
-            <Link to='/one' className='btn btn-dark rounded-0 border-0 join'>
+            <Link to='/signup' className='btn btn-dark rounded-0 border-0 join'>
               Join the Community
             </Link>
           </form>

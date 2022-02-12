@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from './Pages/signup/signup';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      {/* <App /> */}
+      <Routes>
+        <Route path='*' element={<App />} />
+        <Route path='/signup' element={<Signup />} />
+      </Routes>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
