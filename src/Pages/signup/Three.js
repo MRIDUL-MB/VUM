@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import signupAPI from './signupAPI';
+import PasswordStrengthBar from 'react-password-strength-bar';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 export default function Three({ nextStep, prevStep, username }) {
+  const [message, setMessage] = useState('');
+  const [check, setCheck] = useState(false);
+  const [click, setClick] = useState(false);
+  const [phone, setPhone] = useState();
   const [values, setValues] = useState({
     first_name: '',
     last_name: '',
@@ -19,6 +26,9 @@ export default function Three({ nextStep, prevStep, username }) {
     },
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [click]);
   const {
     first_name,
     last_name,
@@ -31,26 +41,35 @@ export default function Three({ nextStep, prevStep, username }) {
   } = values;
 
   const handleChange = (input) => (e) => {
-    setValues({ ...values, username, [input]: e.target.value });
+    setMessage('');
+
+    setValues({
+      ...values,
+      phone_number: phone,
+      username,
+      [input]: e.target.value,
+    });
   };
 
   const validInput = () => {
     if (first_name.trim() === '') {
-      alert('Enter First Name');
+      setMessage('first name is required');
     } else if (last_name.trim() === '') {
-      alert('Enter First Name');
-    } else if (email.trim() === '') {
-      alert('Check Your Email');
+      setMessage('last name is required');
+    } else if (!email.match(/^[^s@]+@[^s@]+.[^s@]+$/)) {
+      setMessage('check your email');
     } else if (gender === '') {
-      alert('Enter Your Gender');
+      setMessage('gender is required');
     } else if (password.trim() === '') {
-      alert('Enter your Password');
-    } else if (phone_number.trim() === '') {
-      alert('Check Your Phone Number');
+      setMessage('password is required');
     } else if (country.trim() === '') {
-      alert('Check Your Country');
+      setMessage('country is required');
     } else if (date_of_birth.trim() === '') {
-      alert('Check Your Date of Birth');
+      setMessage('date of birth is required');
+    } else if (!phone) {
+      setMessage('phone number is required');
+    } else if (!check) {
+      setMessage('check terms and conditions');
     } else {
       return true;
     }
@@ -58,6 +77,7 @@ export default function Three({ nextStep, prevStep, username }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setClick(!click);
     if (validInput()) {
       signupAPI({ ...values })
         .then((data) => {
@@ -65,7 +85,7 @@ export default function Three({ nextStep, prevStep, username }) {
           if (data.status_code === 200) {
             nextStep();
           } else {
-            alert(JSON.stringify(data.errors));
+            setMessage(JSON.stringify(data.message));
           }
         })
         .catch((err) => console.log(err));
@@ -96,7 +116,12 @@ export default function Three({ nextStep, prevStep, username }) {
                 ></button>
               </div>
               <form method='get'>
-                <div className='clearfix'></div>
+                <div className=' mt-5 border-0'></div>
+                {message && (
+                  <div class='d-inline alert-danger' role='alert'>
+                    {message}
+                  </div>
+                )}
                 <div className='form mt-5'>
                   <div className='mb-3'>
                     <div>
@@ -156,6 +181,7 @@ export default function Three({ nextStep, prevStep, username }) {
                         onChange={handleChange('password')}
                         required
                       />
+                      <PasswordStrengthBar password={password} />
                     </div>
                     <div className='mb-3'>
                       <p className='mt-4'>What country do you live in?</p>
@@ -515,43 +541,13 @@ export default function Three({ nextStep, prevStep, username }) {
                           Please confirm your mobile number
                         </p>
                         <div className='row'>
-                          <div className='col-4'>
-                            {/* <!-- Example split danger button --> */}
-                            <div className='dropdown'>
-                              <button
-                                className='btn flag dropdown-toggle p-0'
-                                type='button'
-                                data-bs-toggle='dropdown'
-                                aria-expanded='false'
-                              >
-                                {' '}
-                                <img alt=' ' src='assets/img/flag.png' />{' '}
-                                <img alt=' ' src='assets/img/arrow-1.png' />{' '}
-                              </button>
-                              <ul
-                                className='dropdown-menu dropdown-menu-2 w-auto border-0 rounded-0'
-                                aria-labelledby='dropdownMenuButton2'
-                              >
-                                <li className='mb-2'>
-                                  <img alt=' ' src='assets/img/flag.png' />
-                                </li>
-                                <li className='mb-2'>
-                                  <img alt=' ' src='assets/img/flag2.png' />
-                                </li>
-                                <li className='mb-2'>
-                                  <img alt=' ' src='assets/img/flag3.png' />
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className='col-8'>
+                          <div className='col-12'>
                             <div className='input-group date'>
-                              <input
-                                type='tel'
-                                className='form-control input rounded-0 border-2'
-                                placeholder='555-0123'
-                                value={phone_number}
-                                onChange={handleChange('phone_number')}
+                              <PhoneInput
+                                className='border-0 form-control-lg'
+                                placeholder='Enter phone number'
+                                value={phone}
+                                onChange={setPhone}
                               />
                               <span className='input-group-addon'>
                                 <i className='glyphicon glyphicon-calendar'></i>
@@ -564,8 +560,8 @@ export default function Three({ nextStep, prevStep, username }) {
                             <input
                               className='form-check-input me-3 rounded-0 border-2'
                               type='checkbox'
-                              value=''
-                              id='flexCheckDefault'
+                              value={check}
+                              onChange={() => setCheck(!check)}
                             />
                             <label
                               className='form-check-label'
@@ -590,7 +586,7 @@ export default function Three({ nextStep, prevStep, username }) {
                       Prev
                     </button>{' '}
                     <button
-                      type='submit'
+                      type='button'
                       onClick={onSubmit}
                       className='btn btn-dark rounded-0 border-0 btn-css2 green'
                     >

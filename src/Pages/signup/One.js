@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function One({ nextStep, handleChange, username }) {
+  const [message, setMessage] = useState('');
+
   const handleClick = () => {
-    if (username) nextStep();
-    else alert('Fill Required Field');
+    if (validateUsername()) {
+      nextStep();
+    }
+  };
+  const validateUsername = () => {
+    if (username.trim() === '') {
+      setMessage('*this is required field');
+    } else return true;
   };
 
   return (
@@ -32,6 +41,11 @@ export default function One({ nextStep, handleChange, username }) {
               </h3>
               <form>
                 <div className='form'>
+                  {message && (
+                    <div class='d-inline alert-danger' role='alert'>
+                      {message}
+                    </div>
+                  )}
                   <p className='mt-4'>Enter your Instagram handle*</p>
                   <input
                     className='form-control input rounded-0 border-2'
