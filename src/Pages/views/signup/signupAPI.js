@@ -1,5 +1,7 @@
 export default function signupAPI(values) {
-  return fetch('http://68.183.112.252:8000/user/user/register', {
+  const api = process.env.REACT_APP_BASE_URL;
+  console.log(api);
+  return fetch(process.env.REACT_APP_BASE_URL, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

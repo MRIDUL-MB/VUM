@@ -630,3 +630,14 @@ body {
   line-height: 1.5;
   font-size: 15px;
 }
+
+/* signup -> three -> phone style  */
+.PhoneInputInput {
+  border: none;
+  background-color: #f8f9fb;
+
+}
+
+.PhoneInputInput:focus {
+  background-color: #f8f9fb !important;
+}

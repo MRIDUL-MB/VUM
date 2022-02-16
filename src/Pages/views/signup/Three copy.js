@@ -4,9 +4,11 @@ import signupAPI from './signupAPI';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
+import validator from 'email-validator';
 
 export default function Three({ nextStep, prevStep, username }) {
   const [message, setMessage] = useState('');
+
   const [check, setCheck] = useState(false);
   const [click, setClick] = useState(false);
   const [phone, setPhone] = useState();
@@ -35,11 +37,15 @@ export default function Three({ nextStep, prevStep, username }) {
     email,
     gender,
     password,
-    phone_number,
     country,
     date_of_birth,
   } = values;
 
+  const newDate = () => {
+    let currentDate = new Date();
+    currentDate = currentDate.toISOString().split('T')[0];
+    return currentDate;
+  };
   const handleChange = (input) => (e) => {
     setMessage('');
 
@@ -56,7 +62,7 @@ export default function Three({ nextStep, prevStep, username }) {
       setMessage('first name is required');
     } else if (last_name.trim() === '') {
       setMessage('last name is required');
-    } else if (!email.match(/^[^s@]+@[^s@]+.[^s@]+$/)) {
+    } else if (!validator.validate(email)) {
       setMessage('check your email');
     } else if (gender === '') {
       setMessage('gender is required');
@@ -77,6 +83,7 @@ export default function Three({ nextStep, prevStep, username }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setMessage('');
     setClick(!click);
     if (validInput()) {
       signupAPI({ ...values })
@@ -117,11 +124,7 @@ export default function Three({ nextStep, prevStep, username }) {
               </div>
               <form method='get'>
                 <div className=' mt-5 border-0'></div>
-                {message && (
-                  <div class='d-inline alert-danger' role='alert'>
-                    {message}
-                  </div>
-                )}
+                {message && <div class='d-inline  text-danger'>{message}</div>}
                 <div className='form mt-5'>
                   <div className='mb-3'>
                     <div>
@@ -134,6 +137,9 @@ export default function Three({ nextStep, prevStep, username }) {
                         required
                         type='text'
                       />
+                      {message && (
+                        <div class='d-inline  text-danger'>{message}</div>
+                      )}
                     </div>
                     <div>
                       <p className='mt-4'>Enter your last name</p>
@@ -149,8 +155,7 @@ export default function Three({ nextStep, prevStep, username }) {
                     <div>
                       <p className='mt-4'>Gender</p>
                       <select
-                        className='form-select'
-                        aria-label='Default select example'
+                        className='form-select form-control input rounded-0 border-2'
                         value={gender}
                         onChange={handleChange('gender')}
                         required
@@ -187,7 +192,7 @@ export default function Three({ nextStep, prevStep, username }) {
                       <p className='mt-4'>What country do you live in?</p>
 
                       <select
-                        className='form-select form-control'
+                        className='form-select form-control input rounded-0 border-2 '
                         value={country}
                         onChange={handleChange('country')}
                       >
@@ -532,6 +537,7 @@ export default function Three({ nextStep, prevStep, username }) {
                             className='form-control input rounded-0 border-2'
                             value={date_of_birth}
                             onChange={handleChange('date_of_birth')}
+                            max={newDate()}
                           />
                           <span className='input-group-addon'></span>{' '}
                         </div>
@@ -544,7 +550,7 @@ export default function Three({ nextStep, prevStep, username }) {
                           <div className='col-12'>
                             <div className='input-group date'>
                               <PhoneInput
-                                className='border-0 form-control-lg'
+                                className='form-control input rounded-0 border-2'
                                 placeholder='Enter phone number'
                                 value={phone}
                                 onChange={setPhone}

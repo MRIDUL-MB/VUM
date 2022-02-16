@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Signup from './Pages/signup/signup';
+import Signup from './Pages/views/signup/signup';
 
 ReactDOM.render(
   <React.StrictMode>
